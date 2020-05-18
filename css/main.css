@@ -157,7 +157,7 @@ ul.pagination li:before {
 }
 
 ul.pagination .active:before {
-  background: black;
+  background: #999999;
 }
 
 @media (min-width: 590px) {
