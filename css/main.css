@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons");
+/* this function doesn't seem to work */
+body {
+  margin: 0;
+}
+
+h1, .logo, sub {
+  font-family: 'Roboto Slab', "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: #007888;
+  font-size: 1.2em;
+}
+
+p, a {
+  font-family: 'Roboto', serif;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-bg, .social, .pagination {
+  position: absolute;
+}
+
+.social {
+  display: none;
+}
+
+/* define background as white (or whatever) if you want to have a bar across the top of the page where the menu goes */
+header {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .5em;
+}
+
+header ul {
+  display: none;
+}
+
+/* make z-index -1 to move it one layer under the elements that are by default defined with a z-index of 0 */
+.main-bg {
+  background: url("../images/background03.png");
+  background-position: 40% 0;
+  background-size: cover;
+  width: 40%;
+  height: 100%;
+  z-index: -1;
+  right: 0;
+  background-color: #00bcd4;
+}
+
+/* padding is: top right bottom left */
+.main-content {
+  padding: 6em 4em 8em 3em;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1em;
+}
+
+sub {
+  font-weight: bolder;
+  position: relative;
+  top: -2em;
+}
+
+.main-content p {
+  font-size: .9em;
+  line-height: 1.5em;
+  padding-left: 20%;
+}
+
+.main-content p:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2.5em;
+  width: 20%;
+  background: #4caf50;
+  margin-top: .3em;
+}
+
+footer {
+  width: 85%;
+  background: #9c27b0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-shadow: 10px 10px 30px #9c27b0;
+          box-shadow: 10px 10px 30px #9c27b0;
+}
+
+.bar {
+  width: 6em;
+  height: 8em;
+  background: url(../images/cat24.png);
+  background-size: cover;
+  background-color: #9c27b0;
+}
+
+.cta {
+  color: white;
+  text-decoration: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  margin: 3em auto;
+  white-space: nowrap;
+}
+
+.cta:before {
+  content: '';
+  position: absolute;
+  width: 115%;
+  height: 2em;
+  left: -2.5em;
+  top: -.5em;
+  border: 2px solid #e91e63;
+}
+
+ul.pagination {
+  z-index: 2;
+  background: white;
+  right: 0;
+  top: 30%;
+}
+
+ul.pagination li {
+  padding: .5em 1em 1em .5em;
+  position: relative;
+}
+
+ul.pagination li:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #999999;
+  border-radius: 50%;
+}
+
+ul.pagination .active:before {
+  background: black;
+}
+
+@media (min-width: 590px) {
+  body {
+    font-size: 18px;
+  }
+  .main-content p {
+    width: 70%;
+  }
+  .social {
+    display: unset;
+    z-index: 2;
+    background: none;
+    left: 0;
+    top: 30%;
+    text-align: center;
+  }
+  .social li {
+    margin-bottom: 2em;
+    margin-left: 3px;
+    width: 20px;
+    height: 20px;
+  }
+  .main-content {
+    padding: 4em 4em 8em 6em;
+  }
+  .main-content p {
+    padding-left: 25%;
+  }
+  .main-content p:before {
+    width: 25%;
+  }
+  .block {
+    position: absolute;
+    z-index: 1;
+    width: 6em;
+    height: 12%;
+  }
+  .one {
+    background: #00bcd4;
+    right: 6em;
+  }
+  .two {
+    background: #e91e63;
+    right: 0em;
+    top: 12%;
+  }
+}
+
+@media (min-width: 780px) {
+  .menu {
+    display: none;
+  }
+  nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: .3em .8em;
+    font-size: .9em;
+  }
+  .main-content p {
+    width: auto;
+  }
+  .main-content p:before {
+    height: .9em;
+  }
+}
+/*# sourceMappingURL=main.css.map */
