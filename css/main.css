@@ -14,6 +14,7 @@ h1, .logo, sub {
   text-decoration: none;
   color: #007888;
   font-size: 1.2em;
+  padding: 0.5em;
 }
 
 p, a {
@@ -27,7 +28,7 @@ ul {
   padding: 0;
 }
 
-.main-bg, .social, .pagination {
+.main-bg, .header-bg, .social, .pagination {
   position: absolute;
 }
 
@@ -44,11 +45,20 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .5em;
+  /* padding: .5em; */
 }
 
 header ul {
   display: none;
+}
+
+.header-bg {
+  width: 100%;
+  height: 2.6em;
+  background-size: cover;
+  z-index: -1;
+  background-color: #00bcd4;
+  background: linear-gradient(60deg, white 6em, #4caf50 10%, #00bcd4 50%, #9c27b0 90%, #e91e63 100%);
 }
 
 /* make z-index -1 to move it one layer under the elements that are by default defined with a z-index of 0 */
@@ -68,6 +78,8 @@ header ul {
   padding: 6em 4em 8em 3em;
 }
 
+/* this debug must have been written by Shawn while he played around and I don't know what it is supposed to do 
+@debug 10em + 12em;*/
 h1 {
   font-size: 2.5em;
   line-height: 1em;
@@ -109,7 +121,7 @@ footer {
 .bar {
   width: 6em;
   height: 8em;
-  background: url('../images/cat24.png');
+  background: url("../images/cat24.png");
   background-size: cover;
   background-color: #9c27b0;
 }
@@ -160,6 +172,83 @@ ul.pagination .active:before {
   background: #999999;
 }
 
+/* here starts the stuff that is relevant for the illustrations page */
+.container {
+  padding: 10px;
+  /* the container only needs the fat padding left and right in the versions with social media and pagination */
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  -ms-grid-columns: (minmax(45px, 14fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(45px, 14fr));
+  grid-auto-rows: 54px;
+  grid-auto-flow: dense;
+}
+
+.zone {
+  cursor: pointer;
+  /* display:inline-block; */
+  text-align: center;
+  text-justify: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1em;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.grey {
+  background: #999999;
+}
+
+.purple {
+  background: #9c27b0;
+}
+
+.turquoise {
+  background: #00bcd4;
+}
+
+.green {
+  background: #4caf50;
+}
+
+.pink {
+  background: #e91e63;
+}
+
+.xs {
+  grid-area: span 3 / span 3;
+}
+
+.s {
+  grid-column: span 3;
+  grid-row: span 4;
+}
+
+.m {
+  grid-column: span 4;
+  grid-row: span 3;
+}
+
+.l {
+  grid-column: span 4;
+  grid-row: span 4;
+}
+
+.xl {
+  grid-column: span 4;
+  grid-row: span 5;
+}
+
+/*here start the media queries for other sizes than mobile phones */
 @media (min-width: 590px) {
   body {
     font-size: 18px;
@@ -205,6 +294,10 @@ ul.pagination .active:before {
     right: 0em;
     top: 12%;
   }
+  /* padding is: top right bottom left */
+  .container {
+    padding: 10px 30px 0px 30px;
+  }
 }
 
 @media (min-width: 780px) {
@@ -212,9 +305,10 @@ ul.pagination .active:before {
     display: none;
   }
   nav ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: .5em;
   }
   nav ul li a {
     color: white;

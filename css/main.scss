@@ -33,6 +33,7 @@ h1, .logo, sub {
     text-decoration: none;
     color: darken(color(myturquoise),15%);
     font-size: 1.2em;
+    padding: 0.5em;
 }
 
 p, a {
@@ -46,7 +47,7 @@ ul {
     padding: 0;
 }
 
-.main-bg, .social, .pagination {
+.main-bg, .header-bg, .social, .pagination {
     position: absolute;
 }
 
@@ -59,11 +60,21 @@ header {
     background: none;
     display: flex;
     justify-content: space-between;
-    padding: .5em;
-    
+   /* padding: .5em; */
+   
+
     ul {
     display: none;
     }
+}
+
+.header-bg {
+    width: 100%;
+    height: 2.6em;
+        background-size: cover;
+    z-index: -1;
+    background-color: color(myturquoise);
+    background: linear-gradient(60deg, white 6em, color(mygreen) 10%, color(myturquoise) 50%, color(mypurple) 90%, color(mypink) 100%,); 
 }
 
 /* make z-index -1 to move it one layer under the elements that are by default defined with a z-index of 0 */
@@ -82,7 +93,11 @@ header {
 .main-content {
     padding: 6em 4em 8em 3em;
 }
-@debug 10em + 12em;
+
+/* this debug must have been written by Shawn while he played around and I don't know what it is supposed to do 
+@debug 10em + 12em;*/
+
+
 h1 {
     font-size: 2.5em;
     line-height: 1em;
@@ -172,6 +187,74 @@ ul.pagination {
     }
 }
 
+/* here starts the stuff that is relevant for the illustrations page */
+
+
+.container {
+    padding: 10px;
+    /* the container only needs the fat padding left and right in the versions with social media and pagination */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(45px, 14fr));
+    grid-auto-rows: 54px;
+    grid-auto-flow: dense;
+}
+
+.zone {
+    cursor:pointer;
+   /* display:inline-block; */
+    text-align: center;
+    text-justify: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    transition: all 0.3s linear;
+}
+
+    .grey{
+        background: color(mygrey);
+    } 
+    .purple {
+        background: color(mypurple);
+    }
+    .turquoise {
+        background: color(myturquoise);
+    }
+    .green{
+        background: color(mygreen);
+    }
+    .pink{
+        background: color(mypink);
+
+      
+    }
+
+
+    
+.xs {
+    grid-area: span 3 / span 3;
+    }
+.s {
+    grid-column: span 3;
+    grid-row: span 4;
+}
+.m {
+    grid-column: span 4;
+    grid-row: span 3;
+}
+.l {
+    grid-column: span 4;
+    grid-row: span 4;
+}
+.xl {
+    grid-column: span 4;
+    grid-row: span 5;
+}
+
+
+
+/*here start the media queries for other sizes than mobile phones */
 
 @media (min-width: 590px) {
     body {
@@ -224,6 +307,10 @@ ul.pagination {
         right: 0em;
         top: 12%;
     }
+    /* padding is: top right bottom left */
+    .container {
+        padding: 10px 30px 0px 30px;
+    }    
 }
 
 @media (min-width: 780px) {
@@ -233,7 +320,9 @@ ul.pagination {
     }
 
     nav ul {
-        display: flex;
+        display: inline-flex;
+        padding: .5em;
+
 
         li a {
             color: white;
@@ -243,6 +332,7 @@ ul.pagination {
             font-size: .9em;
         }
     }
+    
 
     .main-content p {
         width: auto;
@@ -253,3 +343,6 @@ ul.pagination {
     }
 
 }
+
+
+
